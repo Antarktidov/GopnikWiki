@@ -1,9 +1,11 @@
 package models
 
 type User struct {
-	ID       int
-	username string
-	is_admin bool
+	ID                int
+	Username          string
+	IsAdmin           bool
+	EncryptedPassword string
+	Password          string
 }
 
 func NewUser() *User {
@@ -11,9 +13,9 @@ func NewUser() *User {
 }
 
 type Article struct {
-	ID         int
-	title      string
-	is_deleted bool
+	ID        int
+	Title     string
+	IsDeleted bool
 }
 
 func NewArticle() *Article {
@@ -21,12 +23,13 @@ func NewArticle() *Article {
 }
 
 type ArticleRevision struct {
-	ID         int
-	user_id    int
-	user_ip    string
-	is_deleted bool
-	title      string
-	content    string
+	ID        int
+	UserID    int
+	ArticleID int
+	UserIP    string
+	IsDeleted bool
+	Title     string
+	Content   string
 }
 
 func NewArticleRevision() *ArticleRevision {
